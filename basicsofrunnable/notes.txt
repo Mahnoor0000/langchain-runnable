@@ -1,0 +1,41 @@
+# LangChain Chains
+
+## LLMChain
+
+A basic chain that calls an LLM using a prompt template.
+
+## SequentialChain
+
+Chains multiple LLM calls together in a specific sequence.
+
+## SimpleSequentialChain
+
+A simplified version of `SequentialChain` that is easier to use when each chain has a single input and output.
+
+## ConversationalRetrievalChain
+
+Handles conversational question-answering with memory and document retrieval.
+
+## RetrievalQA
+
+Fetches relevant documents from a retriever and uses an LLM to answer questions.
+
+## RouterChain
+
+Directs user queries to different chains based on the user's intent.
+
+## MultiPromptChain
+
+Uses different prompts for different types of user queries dynamically.
+
+## HyDEChain
+
+Generates hypothetical answers or documents to improve document retrieval.
+
+## AgentExecutorChain
+
+Uses an agent to dynamically decide which tools or actions to use.
+
+## SQLDatabaseChain
+
+Connects to SQL databases and answers natural language questions using database queries.

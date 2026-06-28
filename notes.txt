@@ -1,0 +1,96 @@
+## Task-specific Runnables
+
+Task-specific runnables are LangChain components that perform a **specific AI task**.
+
+Examples:
+
+prompt
+llm
+retriever
+output_parser
+
+They already know what job they have to do.
+
+For example:
+
+prompt.invoke()
+llm.invoke()
+retriever.invoke()
+parser.invoke()
+
+Each one is a Runnable because it can be called using `.invoke()`.
+
+Example pipeline:
+
+
+chain = prompt | llm | parser
+
+
+This means:
+
+
+Create prompt → send to LLM → parse output
+
+
+## Runnable Primitives
+
+Runnable primitives are basic building blocks used to **combine, control, or modify** runnables.
+
+Common examples:
+
+### `RunnableSequence`
+
+Runs steps one after another.
+
+chain = prompt | llm | parser
+
+This is a sequence.
+
+### `RunnableParallel`
+
+Runs multiple runnables at the same time and returns their outputs together. LangChain describes it as one of the main composition primitives, alongside `RunnableSequence`. ([LangChain Reference Docs][1])
+
+### `RunnablePassthrough`
+
+Passes the input forward without changing it.
+
+Useful when you want to keep the original question while also adding retrieved context.
+
+### `RunnableLambda`
+
+Converts a normal Python function into a Runnable. LangChain’s reference docs describe `RunnableLambda` as a way to convert a Python callable into a Runnable. ([LangChain Reference Docs][2])
+
+Example:
+
+
+from langchain_core.runnables import RunnableLambda
+
+upper_case = RunnableLambda(lambda x: x.upper())
+
+upper_case.invoke("hello")
+
+
+Output:
+
+
+HELLO
+
+## Simple Difference
+
+**Task-specific runnables** do actual AI-related work.
+
+Example:
+
+
+Prompt, LLM, Retriever, Parser
+
+
+**Runnable primitives** help connect or control those components.
+
+Example:
+
+RunnableSequence, RunnableParallel, RunnableLambda, RunnablePassthrough
+
+
+So, task-specific runnables are the **workers**, and runnable primitives are the **connectors/controllers**.
+

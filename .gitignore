@@ -1,0 +1,33 @@
+# Virtual environment
+venv/
+.env
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# VS Code settings
+.vscode/
+
+# Environment files
+*.env
+
+# PDF files
+*.pdf
+
+# Vector database / FAISS files
+*.faiss
+*.pkl
+*.index
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Jupyter notebooks cache
+.ipynb_checkpoints/
+
+# Logs
+*.log
